@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cl5jbjd3dt4a1"]
+
+[ext_resource type="FontFile" uid="uid://bp06ltyh6xp1o" path="res://Assets/Fonts/pixel_font.ttf" id="1_j2nkl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cs7ok"]
+content_margin_top = 50.0
+content_margin_bottom = 90.0
+
+[resource]
+resource_local_to_scene = true
+RichTextLabel/font_sizes/normal_font_size = 100
+RichTextLabel/fonts/normal_font = ExtResource("1_j2nkl")
+RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_cs7ok")
