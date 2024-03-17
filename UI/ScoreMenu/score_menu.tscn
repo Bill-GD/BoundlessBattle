@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccykf53vwmdol"]
+
+[ext_resource type="Theme" uid="uid://cl5jbjd3dt4a1" path="res://UI/label_theme.tres" id="1_1qlei"]
+[ext_resource type="Script" path="res://UI/ScoreMenu/score_menu.gd" id="1_ehvsb"]
+[ext_resource type="PackedScene" uid="uid://b8r7sihims04n" path="res://UI/ScoreMenu/score_display_item.tscn" id="2_veme1"]
+[ext_resource type="Theme" uid="uid://b0cd7uyyqb1da" path="res://UI/button_theme.tres" id="4_sw62w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ibyfd"]
+content_margin_top = 50.0
+content_margin_bottom = 60.0
+
+[node name="ScoreMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ehvsb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScoreContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_1qlei")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ibyfd")
+bbcode_enabled = true
+text = "[center]SCORE"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ScoreLabels" parent="ScoreContainer" instance=ExtResource("2_veme1")]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScoreContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScoreContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonBack" type="Button" parent="."]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 37.0
+offset_right = 249.0
+offset_bottom = 123.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("4_sw62w")
+text = "BACK"
+
+[connection signal="pressed" from="ButtonBack" to="." method="_on_button_back_pressed"]
