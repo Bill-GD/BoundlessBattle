@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8r7sihims04n"]
+[gd_scene load_steps=3 format=3 uid="uid://b8r7sihims04n"]
 
 [ext_resource type="Script" path="res://UI/ScoreMenu/score_display_item.gd" id="1_cgit7"]
+[ext_resource type="Theme" uid="uid://cl5jbjd3dt4a1" path="res://UI/label_theme.tres" id="2_4pifl"]
 
 [node name="ScoreDisplayItem" type="MarginContainer"]
 anchors_preset = 10
@@ -16,23 +17,27 @@ layout_mode = 2
 [node name="Name" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_4pifl")
 text = "Name"
 horizontal_alignment = 1
 
 [node name="Time" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_4pifl")
 text = "Time"
 horizontal_alignment = 1
 
 [node name="Kill" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_4pifl")
 text = "Kill"
 horizontal_alignment = 1
 
 [node name="Boss" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("2_4pifl")
 text = "Boss"
 horizontal_alignment = 1

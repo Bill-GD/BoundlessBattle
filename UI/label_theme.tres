@@ -8,6 +8,8 @@ content_margin_bottom = 90.0
 
 [resource]
 resource_local_to_scene = true
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("1_j2nkl")
 RichTextLabel/font_sizes/normal_font_size = 100
 RichTextLabel/fonts/normal_font = ExtResource("1_j2nkl")
 RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_cs7ok")

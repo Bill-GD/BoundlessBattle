@@ -3,7 +3,7 @@ extends Control
 var score_item: PackedScene = preload("res://UI/ScoreMenu/score_display_item.tscn")
 
 func add_score_item(player_name: String, play_time: String, kill_count: int, boss_kill: int) -> void:
-	var new_item = score_item.instantiate()
+	var new_item: Control = score_item.instantiate()
 	
 	new_item.player_name = player_name
 	new_item.play_time = play_time
