@@ -13,3 +13,7 @@ config_version=5
 config/name="BoundlessBattle"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+UiController="*res://UI/ui_controller.gd"

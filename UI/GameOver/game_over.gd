@@ -1,13 +1,12 @@
 extends Control
 
 func _ready() -> void:
-	hide()
 	#$AnimationPlayer.play("start")
+	pass
 
 func show_menu() -> void:
 	show()
 	$AnimationPlayer.play("start")
 
 func _on_button_main_menu_pressed() -> void:
-	# back to main menu
-	pass
+	UiController.game_over_to_main_menu.emit()

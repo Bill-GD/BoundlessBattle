@@ -4,9 +4,7 @@ extends Control
 # Actual pause/unpause in UI controller (event autoload)
 
 func _on_button_continue_pressed() -> void:
-	# unpause
-	pass
+	UiController.unpause_game.emit()
 
 func _on_button_main_menu_pressed() -> void:
-	# back to main menu, discard run
-	pass
+	UiController.pause_to_main_menu.emit()

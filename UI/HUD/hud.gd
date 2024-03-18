@@ -9,6 +9,7 @@ extends Control
 @onready var boss_label: RichTextLabel = $VBox/HBox/BossKill
 
 var elapsed_time_seconds: float = 0
+var is_paused: bool = false
 
 func _ready() -> void:
 	update_time(0)
@@ -16,6 +17,9 @@ func _ready() -> void:
 	update_health_bar(30)
 	update_kill_count_label(4, 1)
 	$Timer.start()
+
+func pause_timer(value: bool) -> void:
+	$Timer.paused = value
 
 func update_time(new_time: float) -> void:
 	time_label.text = '[center]' + str(new_time)

@@ -21,6 +21,7 @@ func set_card_description(upgrade_item) -> void:
 func _on_button_pressed() -> void:
 	# Apply upgrade to player here
 	print_rich("[color=green]Selected upgrade: %s" % name)
+	UiController.upgrade_chosen.emit()
 
 func _on_button_mouse_entered() -> void:
 	tween = get_tree().create_tween()

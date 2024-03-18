@@ -1,0 +1,29 @@
+[gd_scene load_steps=8 format=3 uid="uid://r7sf85iv7p02"]
+
+[ext_resource type="PackedScene" uid="uid://cee524eolrkl2" path="res://UI/MainMenu/main_menu.tscn" id="1_4nlhp"]
+[ext_resource type="Script" path="res://UI/ui.gd" id="1_eqskg"]
+[ext_resource type="PackedScene" uid="uid://ccykf53vwmdol" path="res://UI/ScoreMenu/score_menu.tscn" id="2_iw0p0"]
+[ext_resource type="PackedScene" uid="uid://c16kyfw1bnt1g" path="res://UI/HUD/hud.tscn" id="3_7w8ao"]
+[ext_resource type="PackedScene" uid="uid://bjf2tgfem34ja" path="res://UI/PauseMenu/pause_menu.tscn" id="4_6tb2h"]
+[ext_resource type="PackedScene" uid="uid://onnvfk42c40t" path="res://UI/UpgradeMenu/upgrade_menu.tscn" id="5_n5oqj"]
+[ext_resource type="PackedScene" uid="uid://jilhs38rkrwf" path="res://UI/GameOver/game_over.tscn" id="6_qvx2g"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_eqskg")
+
+[node name="MainMenu" parent="." instance=ExtResource("1_4nlhp")]
+
+[node name="ScoreMenu" parent="." instance=ExtResource("2_iw0p0")]
+visible = false
+
+[node name="HUD" parent="." instance=ExtResource("3_7w8ao")]
+visible = false
+
+[node name="UpgradeMenu" parent="." instance=ExtResource("5_n5oqj")]
+visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_6tb2h")]
+visible = false
+
+[node name="GameOver" parent="." instance=ExtResource("6_qvx2g")]
+visible = false
