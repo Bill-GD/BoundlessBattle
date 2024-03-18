@@ -13,7 +13,7 @@ func add_score_item(player_name: String, play_time: String, kill_count: int, bos
 	new_item.kill_count = str(kill_count)
 	new_item.boss_kill = str(boss_kill)
 	
-	$ScoreContainer/ScrollContainer/VBoxContainer.add_child(new_item)
+	$ScoreContainer/Scroll/VBox.add_child(new_item)
 
 func _on_button_back_pressed() -> void:
 	# return to main menu

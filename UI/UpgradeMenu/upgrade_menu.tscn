@@ -18,7 +18,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/path = NodePath("VBox:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -46,7 +46,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/path = NodePath("VBox:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -94,7 +94,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.356863)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -102,7 +102,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_6ko5a")
@@ -114,25 +114,25 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="CardContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="CardContainer" type="MarginContainer" parent="VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 60
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CardContainer"]
+[node name="HBox" type="HBoxContainer" parent="VBox/CardContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 150
 alignment = 1
 
-[node name="UpgradeCard1" parent="VBoxContainer/CardContainer/HBoxContainer" instance=ExtResource("3_pqou1")]
+[node name="UpgradeCard1" parent="VBox/CardContainer/HBox" instance=ExtResource("3_pqou1")]
 layout_mode = 2
 
-[node name="UpgradeCard2" parent="VBoxContainer/CardContainer/HBoxContainer" instance=ExtResource("3_pqou1")]
+[node name="UpgradeCard2" parent="VBox/CardContainer/HBox" instance=ExtResource("3_pqou1")]
 layout_mode = 2
 
-[node name="UpgradeCard3" parent="VBoxContainer/CardContainer/HBoxContainer" instance=ExtResource("3_pqou1")]
+[node name="UpgradeCard3" parent="VBox/CardContainer/HBox" instance=ExtResource("3_pqou1")]
 layout_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -2,9 +2,9 @@ extends Control
 
 @export var trans_type: Tween.TransitionType
 
-@onready var card_1: UpgradeCard = $VBoxContainer/CardContainer/HBoxContainer/UpgradeCard1
-@onready var card_2: UpgradeCard = $VBoxContainer/CardContainer/HBoxContainer/UpgradeCard2
-@onready var card_3: UpgradeCard = $VBoxContainer/CardContainer/HBoxContainer/UpgradeCard3
+@onready var card_1: UpgradeCard = $VBox/CardContainer/HBox/UpgradeCard1
+@onready var card_2: UpgradeCard = $VBox/CardContainer/HBox/UpgradeCard2
+@onready var card_3: UpgradeCard = $VBox/CardContainer/HBox/UpgradeCard3
 
 func _ready() -> void:
 	hide()
