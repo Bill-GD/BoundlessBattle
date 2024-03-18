@@ -1,0 +1,143 @@
+[gd_scene load_steps=10 format=3 uid="uid://onnvfk42c40t"]
+
+[ext_resource type="Script" path="res://UI/UpgradeMenu/upgrade_menu.gd" id="1_4adr8"]
+[ext_resource type="Theme" uid="uid://cl5jbjd3dt4a1" path="res://UI/label_theme.tres" id="1_6ko5a"]
+[ext_resource type="Shader" path="res://UI/UpgradeMenu/blur_background.gdshader" id="1_twwb2"]
+[ext_resource type="PackedScene" uid="uid://eev6ugixdxfw" path="res://UI/UpgradeMenu/upgrade_card.tscn" id="3_pqou1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tvjbd"]
+shader = ExtResource("1_twwb2")
+shader_parameter/lod = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8m3hs"]
+content_margin_top = 30.0
+content_margin_bottom = 50.0
+
+[sub_resource type="Animation" id="Animation_ekknh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+
+[sub_resource type="Animation" id="Animation_62od3"]
+resource_name = "start"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_agf31"]
+_data = {
+"RESET": SubResource("Animation_ekknh"),
+"start": SubResource("Animation_62od3")
+}
+
+[node name="UpgradeMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4adr8")
+trans_type = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_tvjbd")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.356863)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_6ko5a")
+theme_override_font_sizes/normal_font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8m3hs")
+bbcode_enabled = true
+text = "[center]SELECT AN UPGRADE[/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="CardContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 60
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CardContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="UpgradeCard1" parent="VBoxContainer/CardContainer/HBoxContainer" instance=ExtResource("3_pqou1")]
+layout_mode = 2
+
+[node name="UpgradeCard2" parent="VBoxContainer/CardContainer/HBoxContainer" instance=ExtResource("3_pqou1")]
+layout_mode = 2
+
+[node name="UpgradeCard3" parent="VBoxContainer/CardContainer/HBoxContainer" instance=ExtResource("3_pqou1")]
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_agf31")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

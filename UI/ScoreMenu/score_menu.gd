@@ -2,6 +2,9 @@ extends Control
 
 var score_item: PackedScene = preload("res://UI/ScoreMenu/score_display_item.tscn")
 
+func _ready() -> void:
+	hide()
+
 func add_score_item(player_name: String, play_time: String, kill_count: int, boss_kill: int) -> void:
 	var new_item: Control = score_item.instantiate()
 	
@@ -12,6 +15,6 @@ func add_score_item(player_name: String, play_time: String, kill_count: int, bos
 	
 	$ScoreContainer/ScrollContainer/VBoxContainer.add_child(new_item)
 
-func _on_button_back_pressed():
+func _on_button_back_pressed() -> void:
 	# return to main menu
 	pass

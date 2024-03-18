@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://eev6ugixdxfw"]
+
+[ext_resource type="Theme" uid="uid://bv4jhcn17ua2e" path="res://UI/UpgradeMenu/upgrade_card_theme.tres" id="1_5p180"]
+[ext_resource type="Script" path="res://UI/UpgradeMenu/upgrade_card.gd" id="1_462a2"]
+[ext_resource type="FontFile" uid="uid://bp06ltyh6xp1o" path="res://Assets/Fonts/pixel_font.ttf" id="2_n6r74"]
+
+[node name="UpgradeCard" type="MarginContainer"]
+offset_right = 243.0
+offset_bottom = 459.0
+script = ExtResource("1_462a2")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+theme = ExtResource("1_5p180")
+
+[node name="MarginContainer" type="MarginContainer" parent="Button"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -190.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Button/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="Type" type="Label" parent="Button/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_n6r74")
+theme_override_font_sizes/font_size = 50
+text = "Damage"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeStat" type="RichTextLabel" parent="Button/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_n6r74")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Increase damage by [color=red]2%"
+fit_content = true
+
+[node name="Description" type="Label" parent="Button/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_n6r74")
+theme_override_font_sizes/font_size = 16
+text = "Increase your damage to better battle against your enemies."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="CurrentStat" type="RichTextLabel" parent="Button/MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_n6r74")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[center]Damage
+10 > [color=darkgreen]10.2"
+fit_content = true
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
