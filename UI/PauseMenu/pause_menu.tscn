@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjf2tgfem34ja"]
+
+[ext_resource type="Script" path="res://UI/PauseMenu/pause_menu.gd" id="1_0mcq5"]
+[ext_resource type="Shader" path="res://UI/UpgradeMenu/blur_background.gdshader" id="2_a51yj"]
+[ext_resource type="Theme" uid="uid://cl5jbjd3dt4a1" path="res://UI/label_theme.tres" id="3_ri0ge"]
+[ext_resource type="Theme" uid="uid://b0cd7uyyqb1da" path="res://UI/button_theme.tres" id="4_advpq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r8yo4"]
+shader = ExtResource("2_a51yj")
+shader_parameter/lod = 1.0
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0mcq5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_r8yo4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.356863)
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_ri0ge")
+text = "PAUSED"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBox" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Box" type="BoxContainer" parent="VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonContinue" type="Button" parent="VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_advpq")
+text = "CONTINUE"
+
+[node name="Box2" type="BoxContainer" parent="VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBox2" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Box" type="BoxContainer" parent="VBox/HBox2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonMainMenu" type="Button" parent="VBox/HBox2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_advpq")
+text = "MAIN MENU"
+
+[node name="Box2" type="BoxContainer" parent="VBox/HBox2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="VBox/HBox/ButtonContinue" to="." method="_on_button_continue_pressed"]
+[connection signal="pressed" from="VBox/HBox2/ButtonMainMenu" to="." method="_on_button_main_menu_pressed"]
