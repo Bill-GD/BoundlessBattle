@@ -3,7 +3,9 @@ extends Node2D
 var player_scene: PackedScene
 var enemy_scene: PackedScene
 
-var enemy_count: int = 10
+var enemy_count: int = 0
+var max_enemy: int = 10
+
 var kill_count: int = 0
 var boss_kill_count: int = 0
 
