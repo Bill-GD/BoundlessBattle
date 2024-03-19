@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvo8wkhtgfek"]
+
+[ext_resource type="Script" path="res://player/player circle.gd" id="1_4q4yd"]
+[ext_resource type="Texture2D" uid="uid://db7hs2jbnsfre" path="res://enemy/vuông.png" id="2_fl7b1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuhdd"]
+size = Vector2(128, 128)
+
+[node name="player" type="Node2D"]
+
+[node name="player square" type="CharacterBody2D" parent="."]
+script = ExtResource("1_4q4yd")
+
+[node name="Sprite2D" type="Sprite2D" parent="player square"]
+position = Vector2(1.13249e-06, -1.43051e-06)
+scale = Vector2(0.212, 0.212)
+texture = ExtResource("2_fl7b1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player square"]
+shape = SubResource("RectangleShape2D_fuhdd")
+one_way_collision_margin = 0.0

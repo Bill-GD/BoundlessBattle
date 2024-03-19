@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://diogwhaudjymu"]
+
+[ext_resource type="Script" path="res://enemy/vuong.gd" id="1_epoap"]
+[ext_resource type="Texture2D" uid="uid://db7hs2jbnsfre" path="res://enemy/vuông.png" id="2_oh5wf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_un8ti"]
+size = Vector2(600, 600)
+
+[node name="enemy vuong" type="Node2D"]
+scale = Vector2(0.05, 0.05)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_epoap")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_oh5wf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(3.09944e-05, 5.72204e-06)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_un8ti")
