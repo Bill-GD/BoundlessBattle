@@ -1,8 +1,63 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6q68bf1gv7tv"]
+[gd_scene load_steps=7 format=3 uid="uid://b6q68bf1gv7tv"]
 
 [ext_resource type="Script" path="res://Item/item.gd" id="1_y6pi5"]
+[ext_resource type="Texture2D" uid="uid://qifumchvj283" path="res://Assets/Sprites/item.png" id="2_kvn6d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a8smi"]
+radius = 12.0416
+
+[sub_resource type="Animation" id="Animation_jx8sv"]
+resource_name = "floating"
+length = 2.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.55, 1.4, 1.5, 2),
+"transitions": PackedFloat32Array(0.784584, 0.707108, 0.869742, 0.707106, 1.27456, 0.659754),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -4), Vector2(0, -4), Vector2(0, 3), Vector2(0, 3), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5awfc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ik2ex"]
+_data = {
+"RESET": SubResource("Animation_5awfc"),
+"floating": SubResource("Animation_jx8sv")
+}
 
 [node name="Item" type="Area2D"]
 script = ExtResource("1_y6pi5")
 
 [node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a8smi")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_kvn6d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ik2ex")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

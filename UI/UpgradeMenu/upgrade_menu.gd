@@ -21,7 +21,7 @@ func generate_random_upgrade() -> void:
 	var has_shotgun: bool = false
 	for i in 3:
 		var up: Upgrade = Upgrade.get_random_upgrade(has_shotgun)
-		has_shotgun = up.type == Upgrade.UpgradeType.SHOTGUN
+		has_shotgun = has_shotgun or up.type == Upgrade.UpgradeType.SHOTGUN
 		upgrades.append(up)
 	
 	card_1.set_card_description(upgrades[0])
