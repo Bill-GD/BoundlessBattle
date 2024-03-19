@@ -8,15 +8,20 @@ extends MarginContainer
 @onready var desc: Label = $Button/MarginContainer/VBoxContainer/Description
 @onready var cur_stat: RichTextLabel = $Button/MarginContainer/VBoxContainer/CurrentStat
 
-var upgrade_item
+var upgrade_item: Upgrade
 var tween: Tween
 
 func _ready() -> void:
 	pivot_offset = size / 2
 
 ## Set the card info based on the Upgrade obj
-func set_card_description(upgrade_item) -> void:
-	pass
+func set_card_description(upgrade: Upgrade) -> void:
+	var info: Dictionary = upgrade.get_upgrade_info()
+	upgrade_item = upgrade
+
+	type.text = info["type"]
+	up_stat.text = info["up_stat"]
+	desc.text = info["desc"]
 
 func _on_button_pressed() -> void:
 	# Apply upgrade to player here
@@ -26,7 +31,6 @@ func _on_button_pressed() -> void:
 func _on_button_mouse_entered() -> void:
 	tween = get_tree().create_tween()
 	tween.tween_property(self, "scale", Vector2(scale_factor, scale_factor), 0.3).set_trans(Tween.TRANS_QUAD)
-	
 
 func _on_button_mouse_exited() -> void:
 	tween.pause() # stop even if enter not finished

@@ -7,6 +7,7 @@ extends Control
 @onready var card_3: UpgradeCard = $VBox/CardContainer/HBox/UpgradeCard3
 
 func show_menu() -> void:
+	generate_random_upgrade()
 	show()
 	move_cards_down()
 	$AnimationPlayer.play("start")
@@ -14,6 +15,18 @@ func show_menu() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "start":
 		slide_cards_in()
+
+func generate_random_upgrade() -> void:
+	var upgrades: Array[Upgrade] = []
+	var has_shotgun: bool = false
+	for i in 3:
+		var up: Upgrade = Upgrade.get_random_upgrade(has_shotgun)
+		has_shotgun = up.type == Upgrade.UpgradeType.SHOTGUN
+		upgrades.append(up)
+	
+	card_1.set_card_description(upgrades[0])
+	card_2.set_card_description(upgrades[1])
+	card_3.set_card_description(upgrades[2])
 	
 func move_cards_down() -> void:
 	var tween: Tween = get_tree().create_tween()
