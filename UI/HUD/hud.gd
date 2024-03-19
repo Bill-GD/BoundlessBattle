@@ -16,7 +16,6 @@ func _ready() -> void:
 	GameController.player_hurt.connect(_on_player_hurt)
 	UiController.start_game.connect(_on_start_game)
 
-
 func _on_start_game() -> void:
 	update_armor_bar(30)
 	update_health_bar(80)

@@ -20,3 +20,8 @@ func reset_scoreboard() -> void:
 func _on_button_back_pressed() -> void:
 	UiController.score_to_main_menu.emit()
 	reset_scoreboard()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action("ui_cancel") and event.is_pressed() and not event.is_echo():
+		reset_scoreboard()
+		UiController.score_to_main_menu.emit()
