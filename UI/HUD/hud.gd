@@ -12,11 +12,24 @@ var elapsed_time_seconds: float = 0
 var is_paused: bool = false
 
 func _ready() -> void:
+	GameController.enemy_died.connect(_on_enemy_died)
+	GameController.player_hurt.connect(_on_player_hurt)
+	UiController.start_game.connect(_on_start_game)
+
+
+func _on_start_game() -> void:
+	update_armor_bar(30)
+	update_health_bar(80)
+	update_kill_count_label(0, 0)
 	update_time(0)
-	update_armor_bar(50)
-	update_health_bar(30)
-	update_kill_count_label(4, 1)
 	$Timer.start()
+
+func _on_player_hurt(health: float, armor: float) -> void:
+	$HUD.update_health_bar(health)
+	$HUD.update_armor_bar(armor)
+
+func _on_enemy_died(_pos: Vector2) -> void:
+	update_kill_count_label(GameController.kill_count, GameController.boss_kill_count)
 
 func pause_timer(value: bool) -> void:
 	$Timer.paused = value

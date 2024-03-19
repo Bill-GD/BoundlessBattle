@@ -8,6 +8,7 @@ func _ready() -> void:
 		child.hide()
 	$MainMenu.show()
 
+# for testing only
 func _input(event: InputEvent) -> void:
 	if event.is_pressed() and not event.is_echo():
 		if event.is_action("ui_cancel") and $HUD.visible:
@@ -28,12 +29,18 @@ func connect_ui_signals() -> void:
 	UiController.game_over_to_main_menu.connect(_on_game_over_to_main_menu)
 
 func _on_start_game() -> void:
+	print('Preparing Game UI')
 	$MainMenu.hide()
 	$HUD.elapsed_time_seconds = 0
 	$HUD.update_time(0)
 	$HUD.show()
 
 func _on_view_score() -> void:
+	var scores: Array = GameController.get_previous_games()
+	print('Displaying scores')
+	for s in scores:
+		$ScoreMenu.add_score_item(s[0], s[1], s[2], s[3])
+	
 	$MainMenu.hide()
 	$ScoreMenu.show()
 

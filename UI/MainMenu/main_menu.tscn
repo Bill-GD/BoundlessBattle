@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cee524eolrkl2"]
+[gd_scene load_steps=6 format=3 uid="uid://cee524eolrkl2"]
 
 [ext_resource type="Theme" uid="uid://b0cd7uyyqb1da" path="res://UI/button_theme.tres" id="1_0oqwl"]
 [ext_resource type="Theme" uid="uid://cl5jbjd3dt4a1" path="res://UI/label_theme.tres" id="1_gwcte"]
 [ext_resource type="Script" path="res://UI/MainMenu/main_menu.gd" id="1_vqqoi"]
+[ext_resource type="Shader" path="res://UI/MainMenu/main_menu.gdshader" id="2_i1iei"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i1seh"]
+shader = ExtResource("2_i1iei")
+shader_parameter/random_rate = 1.0
+shader_parameter/brightness = 0.5
+shader_parameter/flash_frequency = 2.0
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,7 +20,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vqqoi")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_i1seh")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -17,3 +17,4 @@ config/icon="res://icon.svg"
 [autoload]
 
 UiController="*res://UI/ui_controller.gd"
+GameController="*res://Game/game_controller.gd"

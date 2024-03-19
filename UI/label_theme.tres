@@ -8,6 +8,8 @@ content_margin_bottom = 90.0
 
 [resource]
 resource_local_to_scene = true
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.870588)
+Label/constants/shadow_offset_y = 10
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_j2nkl")
 RichTextLabel/font_sizes/normal_font_size = 100
