@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cvo8wkhtgfek"]
 
-[ext_resource type="PackedScene" uid="uid://njk0jl0a7rf8" path="res://player/player_square.tscn" id="1_5c88c"]
+[ext_resource type="PackedScene" uid="uid://njk0jl0a7rf8" path="res://Character/Player/player_square.tscn" id="1_5c88c"]
 
 [node name="player" type="Node2D"]
 position = Vector2(588, 327)

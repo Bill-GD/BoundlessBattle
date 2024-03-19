@@ -25,7 +25,6 @@ func _on_enemy_died(global_pos: Vector2) -> void:
 
 func _on_player_died() -> void:
 	UiController.game_over.emit()
-	# disable player movement
 
 func spawn_enemy() -> void:
 	pass

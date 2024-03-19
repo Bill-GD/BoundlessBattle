@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgvi2u2rcs4jo"
-path="res://.godot/imported/tam giác.png-a4c18246cddee1df9ba6a4d4cbf14719.ctex"
+uid="uid://drls4nxa6srlv"
+path="res://.godot/imported/pngwing.com.png-67a2d016f8cd2e82e4f9c80458eb54eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy/tam giác.png"
-dest_files=["res://.godot/imported/tam giác.png-a4c18246cddee1df9ba6a4d4cbf14719.ctex"]
+source_file="res://Character/Enemy/pngwing.com.png"
+dest_files=["res://.godot/imported/pngwing.com.png-67a2d016f8cd2e82e4f9c80458eb54eb.ctex"]
 
 [params]
 

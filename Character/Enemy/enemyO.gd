@@ -1,9 +1,8 @@
 extends CharacterBody2D
 
-
-const SPEED = 500.0
-var hp = 50
-var atk = 70
+const SPEED = 300.0
+var hp = 100
+var atk = 20
 
 func handle_hit():
 	hp -= 20

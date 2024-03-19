@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://batj8vw4lmrtm"
-path="res://.godot/imported/vuông.png-51e5686b5dc631e27a9ed20e7998b3fb.ctex"
+path="res://.godot/imported/vuông.png-eaa85e2483219afcfcba3c31c8e7c2f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/vuông.png"
-dest_files=["res://.godot/imported/vuông.png-51e5686b5dc631e27a9ed20e7998b3fb.ctex"]
+source_file="res://Character/Player/vuông.png"
+dest_files=["res://.godot/imported/vuông.png-eaa85e2483219afcfcba3c31c8e7c2f7.ctex"]
 
 [params]
 

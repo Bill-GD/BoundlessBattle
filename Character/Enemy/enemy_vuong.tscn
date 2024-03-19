@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://diogwhaudjymu"]
 
 [ext_resource type="Script" path="res://enemy/vuong.gd" id="1_epoap"]
-[ext_resource type="Texture2D" uid="uid://db7hs2jbnsfre" path="res://enemy/vuông.png" id="2_oh5wf"]
+[ext_resource type="Texture2D" uid="uid://db7hs2jbnsfre" path="res://Character/Enemy/vuông.png" id="2_oh5wf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_un8ti"]
 size = Vector2(600, 600)
