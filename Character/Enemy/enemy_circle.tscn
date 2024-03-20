@@ -1,23 +1,21 @@
 [gd_scene load_steps=5 format=3 uid="uid://bw33k8my321lh"]
 
-[ext_resource type="Texture2D" uid="uid://drls4nxa6srlv" path="res://Character/Enemy/pngwing.com.png" id="1_r4dah"]
-[ext_resource type="Script" path="res://enemy/enemyO.gd" id="1_wxvng"]
-[ext_resource type="Script" path="res://enemy/AI.gd" id="3_i8wpg"]
+[ext_resource type="Texture2D" uid="uid://drls4nxa6srlv" path="res://Assets/Sprites/pngwing.com.png" id="1_r4dah"]
+[ext_resource type="Script" path="res://Character/Enemy/enemyO.gd" id="1_wxvng"]
+[ext_resource type="Script" path="res://Character/Enemy/AI.gd" id="3_i8wpg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o3i26"]
 radius = 501.597
 
-[node name="enemy circle" type="Node2D"]
-scale = Vector2(0.05, 0.05)
-
-[node name="body" type="CharacterBody2D" parent="."]
+[node name="body" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(0.03, 0.03)
 script = ExtResource("1_wxvng")
 
-[node name="Sprite2D" type="Sprite2D" parent="body"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_r4dah")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="body"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_o3i26")
 
-[node name="AI" type="Node2D" parent="body"]
+[node name="AI" type="Node2D" parent="."]
 script = ExtResource("3_i8wpg")

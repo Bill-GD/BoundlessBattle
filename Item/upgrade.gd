@@ -36,29 +36,42 @@ static var upgrade_types: Array[String] = [
 var type: UpgradeType
 var description: String
 var up_stat: float
+var cur_stat: String
 
 func _init(upgrade_type: UpgradeType, stat: float) -> void:
 	type = upgrade_type
 	description = type_desc[upgrade_type]
 	up_stat = stat
+	match upgrade_type:
+		UpgradeType.HEALTH:
+			cur_stat = "%.1f > [color=darkgreen]%.1f" % [GameController.player.max_hp, (GameController.player.max_hp * (1 + up_stat / 100))]
+		UpgradeType.DAMAGE:
+			cur_stat = "%.1f > [color=darkgreen]%.1f" % [GameController.player.atk, (GameController.player.atk * (1 + up_stat / 100))]
+		UpgradeType.SPEED:
+			cur_stat = "%.1f > [color=darkgreen]%.1f" % [GameController.player.speed, (GameController.player.speed * (1 + up_stat / 100))]
+		UpgradeType.ARMOR:
+			cur_stat = "%.1f > [color=darkgreen]%.1f" % [GameController.player.max_sheld, (GameController.player.max_sheld * (1 + up_stat / 100))]
+		UpgradeType.SHOTGUN:
+			cur_stat = "Shotgun: "
 
 func get_upgrade_info() -> Dictionary:
 	return {
 		"type": upgrade_types[type],
 		"desc": description,
 		"up_stat": "[center]" + get_upgrade_stat_desc(),
+		"cur_stat": "[center]" + cur_stat,
 	}
 
 func get_upgrade_stat_desc() -> String:
 	if type == UpgradeType.SHOTGUN:
 		return stat_desc[type]
 	else:
-		return stat_desc[type] + "[color=red]" + str(up_stat).substr(0, 1) + "%"
+		return stat_desc[type] + ("[color=red] %.0f" % up_stat) + "%"
 
 static func get_random_upgrade(exclude_shotgun: bool=false) -> Upgrade:
 	var index: int
-	if exclude_shotgun:
-		index = randi_range(0, 3)
-	else:
-		index = randi_range(0, 4)
-	return Upgrade.new(UpgradeType.values()[index], randf_range(1, 5))
+	# if exclude_shotgun:
+	index = randi_range(0, 3)
+	# else:
+	# 	index = randi_range(0, 4)
+	return Upgrade.new(UpgradeType.values()[index], randf_range(5, 15))

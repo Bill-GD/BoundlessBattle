@@ -45,7 +45,7 @@ _data = {
 "floating": SubResource("Animation_jx8sv")
 }
 
-[node name="Item" type="Area2D"]
+[node name="Item" type="Area2D" groups=["item"]]
 script = ExtResource("1_y6pi5")
 
 [node name="Shape" type="CollisionShape2D" parent="."]

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drls4nxa6srlv"
-path="res://.godot/imported/pngwing.com.png-67a2d016f8cd2e82e4f9c80458eb54eb.ctex"
+path="res://.godot/imported/pngwing.com.png-a979396d5c5f2c2de08bacfad4fc77ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Character/Enemy/pngwing.com.png"
-dest_files=["res://.godot/imported/pngwing.com.png-67a2d016f8cd2e82e4f9c80458eb54eb.ctex"]
+source_file="res://Assets/Sprites/pngwing.com.png"
+dest_files=["res://.godot/imported/pngwing.com.png-a979396d5c5f2c2de08bacfad4fc77ae.ctex"]
 
 [params]
 

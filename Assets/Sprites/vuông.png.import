@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://batj8vw4lmrtm"
-path="res://.godot/imported/vuông.png-eaa85e2483219afcfcba3c31c8e7c2f7.ctex"
+uid="uid://db7hs2jbnsfre"
+path="res://.godot/imported/vuông.png-187f3212b30d9bed96d5f55ac6f62d4f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Character/Player/vuông.png"
-dest_files=["res://.godot/imported/vuông.png-eaa85e2483219afcfcba3c31c8e7c2f7.ctex"]
+source_file="res://Assets/Sprites/vuông.png"
+dest_files=["res://.godot/imported/vuông.png-187f3212b30d9bed96d5f55ac6f62d4f.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@ extends Control
 
 func _on_button_play_pressed() -> void:
 	print('Button play pressed')
-	UiController.start_game.emit()
 	GameController.start_game.emit()
+	UiController.start_game.emit()
 
 func _on_button_score_pressed() -> void:
 	print('Button score pressed')

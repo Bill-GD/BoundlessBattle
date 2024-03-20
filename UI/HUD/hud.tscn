@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c16kyfw1bnt1g"]
+[gd_scene load_steps=12 format=3 uid="uid://c16kyfw1bnt1g"]
 
 [ext_resource type="Texture2D" uid="uid://cyvnkxbkkkw08" path="res://Assets/Sprites/health_bar_back.png" id="1_2bkfq"]
 [ext_resource type="Texture2D" uid="uid://cq8pxd3ufgwbb" path="res://Assets/Sprites/health_bar.png" id="1_48qa5"]
@@ -15,9 +15,6 @@ content_margin_top = 20.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ri4r2"]
 content_margin_right = 20.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_onkjt"]
-content_margin_left = 20.0
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -48,6 +45,7 @@ alignment = 1
 [node name="HealthBar" type="TextureProgressBar" parent="VBox/Margin/HBox"]
 layout_mode = 2
 size_flags_horizontal = 6
+rounded = true
 texture_under = ExtResource("1_2bkfq")
 texture_over = ExtResource("1_48qa5")
 texture_progress = ExtResource("2_866yd")
@@ -82,6 +80,7 @@ fit_content = true
 [node name="Armorbar" type="TextureProgressBar" parent="VBox/Margin/HBox"]
 layout_mode = 2
 size_flags_horizontal = 6
+rounded = true
 fill_mode = 1
 texture_under = ExtResource("4_ebtbs")
 texture_over = ExtResource("5_7lwlq")
@@ -115,26 +114,7 @@ theme = ExtResource("4_tgypq")
 theme_override_font_sizes/normal_font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ri4r2")
 bbcode_enabled = true
-text = "[right]Kills: 0"
-fit_content = true
-
-[node name="Divider" type="RichTextLabel" parent="VBox/HBox"]
-layout_mode = 2
-theme = ExtResource("4_tgypq")
-theme_override_font_sizes/normal_font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ri4r2")
-bbcode_enabled = true
-text = "|"
-fit_content = true
-
-[node name="BossKill" type="RichTextLabel" parent="VBox/HBox"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("4_tgypq")
-theme_override_font_sizes/normal_font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxEmpty_onkjt")
-bbcode_enabled = true
-text = "Boss: 0"
+text = "[center]Kills: 0"
 fit_content = true
 
 [node name="Timer" type="Timer" parent="."]

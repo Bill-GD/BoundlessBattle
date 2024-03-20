@@ -8,13 +8,13 @@ func _ready() -> void:
 		child.hide()
 	$MainMenu.show()
 
-# for testing only
 func _input(event: InputEvent) -> void:
 	if event.is_pressed() and not event.is_echo():
 		if event.is_action("ui_cancel") and $HUD.visible:
 			UiController.pause_game.emit()
-		if event.is_action("ui_accept") and $HUD.visible:
-			UiController.upgrade_menu.emit()
+# 		for testing only
+# 		if event.is_action("ui_accept") and $HUD.visible:
+# 			UiController.upgrade_menu.emit()
 
 func connect_ui_signals() -> void:
 	UiController.start_game.connect(_on_start_game)
@@ -30,6 +30,7 @@ func connect_ui_signals() -> void:
 
 func _on_start_game() -> void:
 	print('Preparing Game UI')
+	$HUD.pause_timer(false)
 	$MainMenu.hide()
 	$HUD.elapsed_time_seconds = 0
 	$HUD.update_time(0)
@@ -51,32 +52,45 @@ func _on_score_to_main_menu() -> void:
 func _on_upgrade_menu() -> void:
 	is_upgrading = true
 	# also pause game here
+	GameController.pause_game()
 	$HUD.pause_timer(true)
 	$UpgradeMenu.show_menu()
 
 func _on_upgrade_chosen(_upgrade: Upgrade) -> void:
 	is_upgrading = false
 	$HUD.pause_timer(false)
+	GameController.unpause_game()
 	$UpgradeMenu.hide()
 
 func _on_pause_game() -> void:
 	# also pause game here
+	GameController.pause_game()
 	$HUD.pause_timer(true)
+	$MainMenu.hide()
 	$PauseMenu.show()
 
 func _on_unpause_game() -> void:
-	if not is_upgrading: $HUD.pause_timer(false)
+	if not is_upgrading:
+		$HUD.pause_timer(false)
+		GameController.unpause_game()
 	$PauseMenu.hide()
 
 func _on_pause_to_main_menu() -> void:
 	$PauseMenu.hide()
+	$HUD.pause_timer(false)
 	$HUD.hide()
 	$MainMenu.show()
+	$UpgradeMenu.hide()
+	GameController.set_game_over()
 
 func _on_game_over() -> void:
 	$HUD.pause_timer(true)
-	$GameOverMenu.show()
+	$GameOver.show()
 
 func _on_game_over_to_main_menu() -> void:
-	$GameOverMenu.hide()
+	$GameOver.hide()
+	$HUD.pause_timer(false)
+	$HUD.hide()
 	$MainMenu.show()
+	$UpgradeMenu.hide()
+	GameController.set_game_over()

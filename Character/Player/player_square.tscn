@@ -1,24 +1,41 @@
 [gd_scene load_steps=4 format=3 uid="uid://njk0jl0a7rf8"]
 
-[ext_resource type="Script" path="res://player/player circle.gd" id="1_5betm"]
-[ext_resource type="Texture2D" uid="uid://db7hs2jbnsfre" path="res://Character/Enemy/vuông.png" id="2_lm6vp"]
+[ext_resource type="Script" path="res://Character/Player/player circle.gd" id="1_5betm"]
+[ext_resource type="Texture2D" uid="uid://db7hs2jbnsfre" path="res://Assets/Sprites/vuông.png" id="2_fsimm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuhdd"]
-size = Vector2(128, 128)
+size = Vector2(30, 30)
 
-[node name="player square" type="CharacterBody2D"]
+[node name="player_square" type="CharacterBody2D"]
 script = ExtResource("1_5betm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.13249e-06, -1.43051e-06)
-scale = Vector2(0.212, 0.212)
-texture = ExtResource("2_lm6vp")
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_fsimm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_fuhdd")
 one_way_collision_margin = 0.0
 
 [node name="gun" type="Marker2D" parent="."]
-position = Vector2(66, 0)
+position = Vector2(15, 0)
 
 [node name="atkcd" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="HurtCD" type="Timer" parent="."]
+one_shot = true
+
+[node name="ArmorCD" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="ArmorRegen" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="ArmorCD" to="." method="_on_armor_cd_timeout"]
+[connection signal="timeout" from="ArmorRegen" to="." method="_on_armor_regen_timeout"]

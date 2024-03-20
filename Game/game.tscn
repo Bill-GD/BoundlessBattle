@@ -8,8 +8,6 @@ script = ExtResource("1_x6gum")
 
 [node name="UI" parent="." instance=ExtResource("1_yaqox")]
 
-[node name="Camera" type="Camera2D" parent="."]
-
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -100
 
@@ -22,3 +20,4 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
+one_shot = true
